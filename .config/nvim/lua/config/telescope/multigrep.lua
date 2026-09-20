@@ -35,6 +35,11 @@ local live_multigrep = function(opts)
 			table.insert(args, "-e")
 			table.insert(args, search_text)
 
+			-- Include dotfiles but skip the .git directory.
+			table.insert(args, "--hidden")
+			table.insert(args, "--glob")
+			table.insert(args, "!.git/**")
+
 			if pieces[2] then
 				table.insert(args, "-g")
 				table.insert(args, pieces[2])
