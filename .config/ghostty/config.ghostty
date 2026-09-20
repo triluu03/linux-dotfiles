@@ -1,0 +1,20 @@
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+j=goto_split:down
+keybind = ctrl+alt+k=goto_split:up
+keybind = ctrl+alt+l=goto_split:right
+
+keybind = alt+shift+h=move_tab:-1
+keybind = alt+shift+l=move_tab:1
+
+keybind = alt+t=new_tab
+keybind = alt+w=close_surface
+keybind = alt+d=new_split:right
+keybind = alt+shift+d=new_split:down
+
+keybind = alt+k=clear_screen
+
+background-opacity = 0.8
+
+split-divider-color = #D0F0C0
+theme = Kanagawa Wave
+
