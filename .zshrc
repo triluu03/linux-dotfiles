@@ -137,11 +137,14 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-# UV shared environment
+# UV and Python stuff
 . "$HOME/.local/share/../bin/env"
-
-# Python master environment
 source /home/triluu/python-master-venv/.venv/bin/activate
+
+# Elixir stuff
+installs_dir=$HOME/.elixir-install/installs
+export PATH=$installs_dir/otp/28.4/bin:$PATH
+export PATH=$installs_dir/elixir/1.20.4-otp-28/bin:$PATH
 
 # Starship
 # eval "$(starship init zsh)"
