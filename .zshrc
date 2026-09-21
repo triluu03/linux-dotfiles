@@ -89,6 +89,8 @@ plugins=(
 	copypath 
 	# copyfile
 	command-not-found
+	aliases
+	zsh-interactive-cd
 )
 
 source $ZSH/oh-my-zsh.sh
