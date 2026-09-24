@@ -29,6 +29,7 @@ return {
 			lua = { "stylua" },
 			python = { "ruff_fix", "ruff_format" },
 			rust = { "rustfmt" },
+			go = { "gofmt" },
 		},
 		formatters = {
 			ruff_fix = {
