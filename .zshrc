@@ -85,12 +85,16 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
 	zsh-autosuggestions 
 	zsh-syntax-highlighting 
+	# zsh-interactive-cd
+	#
+	z
 	colored-man-pages 
+	#
 	copypath 
-	# copyfile
+	copyfile
+	#
 	command-not-found
 	aliases
-	zsh-interactive-cd
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -147,6 +151,11 @@ source /home/triluu/python-master-venv/.venv/bin/activate
 installs_dir=$HOME/.elixir-install/installs
 export PATH=$installs_dir/otp/28.4/bin:$PATH
 export PATH=$installs_dir/elixir/1.20.4-otp-28/bin:$PATH
+
+# Go stuff
+# NOTE: this PATH has been added to ~/.profile
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 # Starship
 # eval "$(starship init zsh)"
