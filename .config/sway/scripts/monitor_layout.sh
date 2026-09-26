@@ -1,8 +1,12 @@
 #!/bin/bash
 
 # Monitor layout
-xrandr --output DP-4 --primary --auto --output HDMI-0 --left-of DP-4 --auto
-xrandr --output HDMI-0 --mode 1920x1080 --rate 143.98
+swaymsg output HDMI-A-1 enable
+swaymsg output HDMI-A-1 mode 1920x1080@143.981Hz
+swaymsg output HDMI-A-1 position 0 0
+
+swaymsg output DP-3 enable
+swaymsg output DP-3 position 1920 0
 
 # Wallpaper
-feh --bg-fill /home/triluu/Pictures/wallpaper.jpg
+swaybg -i /home/triluu/Pictures/wallpaper.jpg -m fill &
