@@ -16,7 +16,7 @@
 
   "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/ethernet", "memory", "pulseaudio"],
+  "modules-right": ["bluetooth", "custom/ethernet", "memory", "pulseaudio"],
 
   // Sway workspaces rendered as dots (left side).
   "sway/workspaces": {
@@ -57,13 +57,42 @@
     "format-source-muted": "\uf026 muted",
     "tooltip-format": "{desc}",
     "scroll-step": 2,
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
   },
 
-  // Clock (parity with i3status "time": %a %Y-%m-%d %H:%M:%S).
   "clock": {
     "interval": 1,
     "format": "\uf017 {:%a %Y-%m-%d %H:%M:%S}",
-    "tooltip-format": "{:%A, %B %d %Y}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#f5e0dc'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks": "<span color='#7f849c'><b>W{}</b></span>",
+        "weekdays": "<span color='#fab387'><b>{}</b></span>",
+        "today": "<span color='#f5c2e7'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+  },
+
+  "bluetooth": {
+    "format": "\uf294 {status}",
+    "format-connected": "\uf294 {device_alias}",
+    "format-connected-battery": "\uf294 {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "on-click": "blueman-manager",
   },
 }
