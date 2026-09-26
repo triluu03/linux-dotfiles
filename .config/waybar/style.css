@@ -1,0 +1,112 @@
+/* Waybar style — Catppuccin Mocha
+ *
+ * Palette lives in mocha.css (@define-color declarations). Rounded "pill"
+ * modules float on a transparent bar, each tinted with its own accent.
+ */
+
+@import "mocha.css";
+
+* {
+  border: none;
+  border-radius: 10px;
+  font-family:
+    "JetBrainsMono Nerd Font", "Ubuntu Sans Mono", "DejaVu Sans Mono", monospace;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 0;
+}
+
+window#waybar {
+  background: alpha(@base, 0.9);
+  color: @text;
+  border-bottom: 1px solid @surface1;
+}
+
+tooltip {
+  background: @base;
+  border: 1px solid @surface1;
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: @text;
+  padding: 6px 10px;
+}
+
+/* Focused window title */
+#window {
+  background: @surface0;
+  border: 1px solid @surface1;
+  border-radius: 12px;
+  color: @subtext0;
+  padding: 0 12px;
+}
+
+/* Shared rounded-box look for every status module */
+#workspaces,
+#custom-ethernet,
+#memory,
+#pulseaudio,
+#clock {
+  background: @surface0;
+  border: 1px solid @surface1;
+  border-radius: 10px;
+  padding: 0 14px;
+  margin: 3px 2px;
+}
+
+/* Workspace dots */
+#workspaces {
+  padding: 0 6px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @overlay1;
+  padding: 0 5px;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+#workspaces button:hover {
+  color: @text;
+}
+
+#workspaces button.focused {
+  color: @lavender;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+/* Per-module accent colors */
+#custom-ethernet {
+  color: @sky;
+}
+#custom-ethernet.down {
+  color: @red;
+}
+
+#memory {
+  color: @peach;
+}
+
+#pulseaudio {
+  color: @green;
+}
+#pulseaudio.muted {
+  color: @red;
+}
+
+#clock {
+  color: @mauve;
+}
+
+/* Subtle hover feedback */
+#custom-ethernet:hover,
+#memory:hover,
+#pulseaudio:hover,
+#clock:hover {
+  background: @surface1;
+}

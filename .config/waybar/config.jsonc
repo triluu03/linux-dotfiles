@@ -1,0 +1,69 @@
+// Waybar configuration (Catppuccin Mocha)
+//
+// Mirrors the current i3status bar (.config/sway/i3status.conf) with the same
+// modules, in the same order: ethernet, memory, volume, clock.
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "spacing": 4,
+
+  // Full-width bar; the bar background defines the top edge.
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+
+  "modules-left": ["sway/workspaces", "sway/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/ethernet", "memory", "pulseaudio"],
+
+  // Sway workspaces rendered as dots (left side).
+  "sway/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "\uf10c",
+      "focused": "\uf111",
+      "urgent": "\uf111",
+    },
+    "all-outputs": true,
+  },
+
+  // Focused window title (center).
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 70,
+  },
+
+  // Ethernet.
+  "custom/ethernet": {
+    "exec": "~/.config/waybar/scripts/ethernet.sh",
+    "return-type": "json",
+    "interval": 5,
+  },
+
+  // Memory.
+  "memory": {
+    "interval": 1,
+    "format": "\uf2db {used} / {total}",
+    "tooltip-format": "{percentage}% used ({used} / {total})",
+  },
+
+  // Volume.
+  "pulseaudio": {
+    "format": "\uf028 {volume}% ({desc})",
+    "format-muted": "\uf026 muted ({desc})",
+    "format-source": "\uf028 {volume}%",
+    "format-source-muted": "\uf026 muted",
+    "tooltip-format": "{desc}",
+    "scroll-step": 2,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+  },
+
+  // Clock (parity with i3status "time": %a %Y-%m-%d %H:%M:%S).
+  "clock": {
+    "interval": 1,
+    "format": "\uf017 {:%a %Y-%m-%d %H:%M:%S}",
+    "tooltip-format": "{:%A, %B %d %Y}",
+  },
+}
