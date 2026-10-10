@@ -127,7 +127,8 @@ fi
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-#
+
+# lsd aliases
 alias ls='lsd'
 alias lsa='lsd -lah'
 alias l='lsd -lah'
@@ -156,9 +157,6 @@ export PATH=$installs_dir/elixir/1.20.4-otp-28/bin:$PATH
 # NOTE: this PATH has been added to ~/.profile
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$(go env GOPATH)/bin"
-
-# Starship
-# eval "$(starship init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

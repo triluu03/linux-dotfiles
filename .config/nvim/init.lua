@@ -158,42 +158,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- [[ Very fancy stuff ]]
--- Backward version of inside motions
-local function backward_inner_textobj()
-	-- Count operator
-	local count = vim.v.count1
-	-- Get the next key after I, e.g. ", ), ], }
-	local c = vim.fn.nr2char(vim.fn.getchar())
-
-	-- Search backwards for the opening delimiter
-	for _ = 1, count do
-		vim.fn.search("\\V" .. c, "b")
-	end
-
-	-- Visually select "inner" part of the pair
-	vim.cmd("normal! vi" .. c)
-end
-vim.keymap.set({ "o", "x" }, "I", backward_inner_textobj, { silent = true })
-
--- Backward version of around motions
-local function backward_around_textobj()
-	-- Count operator
-	local count = vim.v.count1
-	-- Get the next key after A, e.g. ", ), ], }
-	local c = vim.fn.nr2char(vim.fn.getchar())
-
-	-- Search backwards for the opening delimiter
-	for _ = 1, count do
-		vim.fn.search("\\V" .. c, "b")
-	end
-
-	-- Visually select "around" part of the pair
-	vim.cmd("normal! va" .. c)
-end
-vim.keymap.set({ "o", "x" }, "A", backward_around_textobj, { silent = true })
--- [[ End of very fancy stuff ]]
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

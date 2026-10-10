@@ -16,7 +16,7 @@
 
   "modules-left": ["sway/workspaces", "sway/window"],
   "modules-center": ["clock"],
-  "modules-right": ["bluetooth", "custom/ethernet", "memory", "pulseaudio"],
+  "modules-right": ["bluetooth", "pulseaudio", "memory", "custom/ethernet"],
 
   // Sway workspaces rendered as dots (left side).
   "sway/workspaces": {

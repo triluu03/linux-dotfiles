@@ -8,7 +8,10 @@ return { -- Collection of various small independent plugins/modules
 		--  - va)  - [V]isually select [A]round [)]paren
 		--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
 		--  - ci'  - [C]hange [I]nside [']quote
-		require("mini.ai").setup({ n_lines = 500 })
+		require("mini.ai").setup({ n_lines = 500, mappings = {
+			inside_last = "I",
+			around_last = "A",
+		} })
 
 		-- Add/delete/replace surroundings (brackets, quotes, etc.)
 		--

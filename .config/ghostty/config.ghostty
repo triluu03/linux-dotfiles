@@ -13,6 +13,8 @@ keybind = alt+shift+d=new_split:down
 
 keybind = alt+k=clear_screen
 
+gtk-single-instance = true
+
 background-opacity = 0.8
 
 split-divider-color = #D0F0C0
