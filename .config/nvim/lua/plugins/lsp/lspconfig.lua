@@ -78,10 +78,15 @@ return {
 				--  This is where a variable was first declared, or where a function is defined, etc.
 				--  To jump back, press <C-t>.
 				map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+				map("grD", function()
+					require("telescope.builtin").lsp_definitions({
+						jump_type = "vsplit",
+					})
+				end, "[G]oto [D]efinition (vsplit)")
 
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header.
-				map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+				-- map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
@@ -212,8 +217,8 @@ return {
 			expert = {},
 			-- clangd = {},
 			gopls = {},
-			pyright = {},
-			-- ty = {},
+			-- pyright = {},
+			ty = {},
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
